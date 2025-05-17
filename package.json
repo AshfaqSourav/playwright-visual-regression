@@ -1,0 +1,25 @@
+{
+  "name": "visual-regression-playwright",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "test": "npx playwright test",
+    "figma:download": "ts-node figma/download.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "node-fetch": "^2.7.0",
+    "pixelmatch": "^5.0.2",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^20.5.9",
+    "@types/node-fetch": "^2.6.12",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "playwright": "^1.52.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,25 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "commonjs",
+//     "esModuleInterop": true,
+//     "types": ["node", "node-fetch"],
+//     "lib": ["ES2020"],
+//     "strict": true,
+//     "resolveJsonModule": true,
+//     "skipLibCheck": true
+//   },
+//   "include": ["**/*.ts"]
+// }
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "types": ["node", "playwright"],
+    "outDir": "dist"
+  },
+  "include": ["**/*.ts"]
+}
