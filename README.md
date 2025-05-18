@@ -44,8 +44,13 @@ npm install
 ```Install Playwright browsers:
 npx playwright install
 
+```Add .env file
+npm install dotenv
+Add a file with .env
+Add FIGMA_TOKEN ,FIGMA_FILE_KEY,URL
+
 ```Run a Visual Test
-Run a Visual Test
+npx playwright test
 
 ``` open the HTML report directly after test run:
 start diff_output/report.html     # On Windows

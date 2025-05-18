@@ -128,9 +128,9 @@ test('Generate combined multi-viewport tabbed report', async () => {
       {
         name: 'Desktop',
         diffPixels: desktopDiffPixels,
-        expectedImage: 'paystation-expected.png',
-        actualImage: 'paystation-actual.png',
-        diffImage: 'paystation-diff.png'
+        expectedImage: 'paystationDesktop-expected.png',
+        actualImage: 'paystationDesktop-actual.png',
+        diffImage: 'paystationDesktop-diff.png'
       },
       {
         name: 'Laptop',

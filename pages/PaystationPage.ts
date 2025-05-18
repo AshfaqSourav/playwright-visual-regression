@@ -1,4 +1,6 @@
 import { Page } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
 
 type ViewportType = 'desktop' | 'laptop' | 'tablet' | 'mobile';
 
@@ -13,7 +15,7 @@ export class PaystationPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.URL}/paystation`, {
+    await this.page.goto(`${process.env.BASEURL}/paystation`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);
