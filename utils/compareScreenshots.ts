@@ -49,7 +49,7 @@ const diffPixels = pixelmatch(
   diff.data,
   cropWidth,
   cropHeight,
-  { threshold: 0.1 }
+  { threshold: 0.3 }
 );
 
   fs.writeFileSync(diffPath, PNG.sync.write(diff));

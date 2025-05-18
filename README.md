@@ -35,8 +35,8 @@ Make sure you have the following installed:
 After cloning the repo:
 
 ```bash
-git clone https://github.com/your-org/visual-regression-testing.git
-cd visual-regression-testing
+git clone https://github.com/AshfaqSourav/playwright-visual-regression.git
+cd playwright-visual-regression
 
 ```Install dependencies
 npm install
@@ -60,7 +60,7 @@ open diff_output/report.html      # On macOS
 
 📂 Folder Structure
 
-visual-regression-testing/
+playwright-visual-regression/
 ├── figma/                        # Download baseline from Figma
 │   └── download.ts
 │
