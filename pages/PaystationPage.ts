@@ -13,7 +13,7 @@ export class PaystationPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto('https://app.xsolla.vivasoftltd.xyz/paystation', {
+    await this.page.goto(`${process.env.URL}/paystation`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);
