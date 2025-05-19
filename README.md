@@ -24,7 +24,7 @@ This project provides a fully automated **visual regression testing pipeline** u
 
 Make sure you have the following installed:
 
-- [Node.js v18+](https://nodejs.org/en/download/)
+- [Node.js v18+, preferred to use v20.17.0](https://nodejs.org/en/download/)
 - Git
 - A Figma personal access token (for downloading design baselines)
 
@@ -43,6 +43,7 @@ npm install
 
 ```Install Playwright browsers:
 npx playwright install
+npm install --save-dev @types/node
 
 ```Add .env file
 npm install dotenv
