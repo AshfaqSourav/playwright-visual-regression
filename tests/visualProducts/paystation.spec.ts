@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { PaystationPage } from '../../pages/PaystationPage';
+import { PaystationPage } from '../../pages/products/PaystationPage';
 import { compareScreenshots } from '../../utils/compareScreenshots';
-import { generateHtmlReport as generateDesktopHtml } from '../../utils/HtmlReport/generatePaystationDesktopHtmlReport';
-import { generateHtmlReport as generateLaptopHtml } from '../../utils/HtmlReport/generatePaystationLaptopHtmlReport';
-import { generateHtmlReport as generateTabletHtml } from '../../utils/HtmlReport/generatePaystationTabletHtmlReport';
-import { generateHtmlReport as generateMobileHtml } from '../../utils/HtmlReport/generatePaystationMobileHtmlReport';
+import { generateHtmlReport as generateDesktopHtml } from '../../utils/HtmlReport/products/paystation/generatePaystationDesktopHtmlReport';
+import { generateHtmlReport as generateLaptopHtml } from '../../utils/HtmlReport/products/paystation/generatePaystationLaptopHtmlReport';
+import { generateHtmlReport as generateTabletHtml } from '../../utils/HtmlReport/products/paystation/generatePaystationTabletHtmlReport';
+import { generateHtmlReport as generateMobileHtml } from '../../utils/HtmlReport/products/paystation/generatePaystationMobileHtmlReport';
 import { generateHtmlReport as generateTabbedReportHtml } from '../../utils/HtmlReport/generateTabbedReport';
 import { scrollPage } from '../../utils/scrollUtils';
 import { exec } from 'child_process';
@@ -18,7 +18,7 @@ let tabletDiffPixels = 0;
 let mobileDiffPixels = 0;
 
 // Desktop Test
-test('Paystation Desktop visual should match Figma', async ({ page }) => {
+test('A - Paystation Desktop visual should match Figma', async ({ page }) => {
   const paystation = new PaystationPage(page, 'desktop');
   await paystation.goto();
   await scrollPage(page);
@@ -43,7 +43,7 @@ test('Paystation Desktop visual should match Figma', async ({ page }) => {
 });
 
 // Laptop Test
-test('Paystation Laptop visual should match Figma', async ({ page }) => {
+test('B - Paystation Laptop visual should match Figma', async ({ page }) => {
   const paystation = new PaystationPage(page, 'laptop');
   await paystation.goto();
   await scrollPage(page);
@@ -68,7 +68,7 @@ test('Paystation Laptop visual should match Figma', async ({ page }) => {
 });
 
 // Tablet Test
-test('Paystation Tablet visual should match Figma', async ({ page }) => {
+test('C - Paystation Tablet visual should match Figma', async ({ page }) => {
   const paystation = new PaystationPage(page, 'tablet');
   await paystation.goto();
   await scrollPage(page);
@@ -93,7 +93,7 @@ test('Paystation Tablet visual should match Figma', async ({ page }) => {
 });
 
 // Mobile Test
-test('Paystation Mobile visual should match Figma', async ({ page }) => {
+test('D - Paystation Mobile visual should match Figma', async ({ page }) => {
   const paystation = new PaystationPage(page, 'mobile');
   await paystation.goto();
   await scrollPage(page);
@@ -118,11 +118,11 @@ test('Paystation Mobile visual should match Figma', async ({ page }) => {
 });
 
 // Combined Report
-test('Generate combined multi-viewport tabbed report', async () => {
-   const reportPath = path.resolve('./diff_output/multiViewportReport.html');
+test('E - Generate combined multi-viewport tabbed report', async () => {
+   const reportPath = path.resolve('./diff_output/paystationMultiViewportReport.html');
   generateTabbedReportHtml({
     outputDir: diffDir,
-    reportPath: `${diffDir}/multiViewportReport.html`,
+    reportPath: `${diffDir}/paystationmultiViewportReport.html`,
     pageName: 'Paystation',
     viewports: [
       {

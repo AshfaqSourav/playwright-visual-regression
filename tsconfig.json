@@ -8,5 +8,5 @@
     "types": ["node", "playwright"],
     "outDir": "dist"
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "pages/webShop/WSCatalogueManagementPage"]
 }

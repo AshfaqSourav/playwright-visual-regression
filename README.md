@@ -26,7 +26,7 @@ Make sure you have the following installed:
 
 - [Node.js v18+, preferred to use v20.17.0](https://nodejs.org/en/download/)
 - Git
-- A Figma personal access token (for downloading design baselines)
+- A Figma personal access token (for downloading design baselines) and you should have page export permission
 
 ---
 
@@ -44,6 +44,7 @@ npm install
 ```Install Playwright browsers:
 npx playwright install
 npm install --save-dev @types/node
+ npm install -g cors-anywhere
 
 ```Add .env file
 npm install dotenv
@@ -57,7 +58,7 @@ npx playwright test
 start diff_output/report.html     # On Windows
 open diff_output/report.html      # On macOS
 
-
+npx playwright test ".\\tests\\visualProducts\\paystation.spec.ts"
 
 📂 Folder Structure
 

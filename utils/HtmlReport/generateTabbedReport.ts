@@ -12,7 +12,7 @@ type ViewportResult = {
 export function generateHtmlReport({
   outputDir,
   reportPath,
-  pageName = 'Paystation',
+  pageName = 'Visual',
   viewports
 }: {
   outputDir: string;
@@ -46,10 +46,10 @@ export function generateHtmlReport({
   <title>Visual Regression Report - ${pageName}</title>
   <style>
     body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; }
-    header { text-align: center; padding: 20px; background: #0d6efd; color: white; }
+    header { text-align: center; padding: 20px; background: #28282c; color: white; }
     .tabs { display: flex; justify-content: center; gap: 10px; margin: 20px; }
     .tab-button { padding: 10px 20px; cursor: pointer; background: #dee2e6; border: none; border-radius: 4px; font-weight: bold; }
-    .tab-button.active { background: #0d6efd; color: white; }
+    .tab-button.active { background: #28282c; color: white; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
     .summary { text-align: center; font-size: 18px; margin: 15px 0; }

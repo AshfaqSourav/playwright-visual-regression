@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🧪 Visual Regression Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      display: flex;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #28282c;
+      color: white;
+      padding: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 0px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #18171c;
+    }
+
+    .main {
+      flex: 1;
+      background-color: #f5f5f5;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #18171c;
+      margin-bottom: 20px;
+    }
+    h2{
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+
+    .module-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .module-nav button {
+      background: white;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .module-nav button.active {
+      background-color: #18171c;
+      color: white;
+    }
+
+    iframe {
+      width: 100%;
+      height: 1024px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    .loader {
+      width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 18px;
+      display: none;
+    }
+
+    .no-report {
+      padding: 50px;
+      text-align: center;
+      color: #888;
+      display: none;
+    }
+    .spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px solid #ccc;
+  border-top: 10px solid #18171c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px auto;
+}
+
+.loader-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #18171c;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <a href="#" class="active" onclick="loadModule('products', event)"><h2>📦Products</h2></a>
+    <a href="#" onclick="loadModule('solutions', event)"><h2>💡Solutions</h2></a>
+    <a href="#" onclick="loadModule('webshop', event)"><h2>🛒Webshop</h2></a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <h1>🧪 Visual Regression Report</h1>
+    <div class="module-nav" id="pageButtons"></div>
+    <div class="loader" id="loader">
+  <div class="spinner"></div>
+  <div class="loader-text">Loading visual report...</div>
+</div>
+    <div class="no-report" id="noReport">⚠️ No report available for this module.</div>
+    <iframe id="reportViewer"></iframe>
+  </div>
+
+  <script>
+    const modules = {
+      products: [
+        { name: "Paystation", report: "../../diff_output/paystationMultiViewportReport.html" },
+        { name: "Anti-Fraud", report: "../../diff_output/antiFraudMultiViewportReport.html" },
+        { name: "Subscriptions", report: "../../diff_output/subscriptionsMultiViewportReport.html" },
+        { name: "Buy Button", report: "../../diff_output/buyButtonMultiViewportReport.html" },
+        { name: "Shop Builder", report: "../../diff_output/shopBuilderMultiViewportReport.html" },
+        { name: "Site Builder", report: "../../diff_output/siteBuilderMultiViewportReport.html" },
+        { name: "Login", report: "../../diff_output/loginMultiViewportReport.html" }
+      ],
+      solutions: [
+        { name: "Payments", report: "../../diff_output/slnPaymentsMultiViewportReport.html" },
+        { name: "Backend", report: "../../diff_output/slnBackendMultiViewportReport.html" },
+        { name: "Cloud Gaming", report: "../../diff_output/slnCloudGamingMultiViewportReport.html" },
+        { name: "Xsolla Gold", report: "../../diff_output/slnXsollaGoldMultiViewportReport.html" },
+        { name: "XPN", report: "../../diff_output/slnXpnMultiViewportReport.html" },
+        { name: "ZK", report: "../../diff_output/slnZkMultiViewportReport.html" },
+        { name: "Mall", report: "../../diff_output/slnMallMultiViewportReport.html" },
+        { name: "Solutions", report: "../../diff_output/solutionsMultiViewportReport.html" }
+      ],
+      webshop: [
+        { name: "Parent Page", report: "../../diff_output/wsParentPageMultiViewportReport.html" },
+        { name: "Instant", report: "../../diff_output/wsInstantMultiViewportReport.html" },
+        { name: "Live Ops", report: "../../diff_output/wsLiveOpsMultiViewportReport.html" },
+        { name: "Social Packages", report: "../../diff_output/wsSocialPackagesMultiViewportReport.html" },
+        { name: "Login", report: "../../diff_output/wsLoginMultiViewportReport.html" },
+        { name: "Web Portal", report: "../../diff_output/wsWebPortalMultiViewportReport.html" },
+        { name: "Catalogue Management", report: "../../diff_output/wsCatalogueManagementMultiViewportReport.html" },
+        { name: "Customization", report: "../../diff_output/wsCustomizationMultiViewportReport.html" }
+      ]
+    };
+
+    function loadModule(moduleKey, e) {
+      if (e) {
+        document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+        e.target.classList.add('active');
+      }
+
+      const pages = modules[moduleKey];
+      const container = document.getElementById('pageButtons');
+      container.innerHTML = '';
+      document.getElementById('reportViewer').style.display = 'none';
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('noReport').style.display = 'none';
+
+      if (!pages || pages.length === 0) {
+        document.getElementById('noReport').style.display = 'block';
+        return;
+      }
+
+      pages.forEach((page, i) => {
+        const btn = document.createElement('button');
+        btn.innerText = page.name;
+        btn.onclick = () => {
+          loadReport(page.report, container, btn);
+        };
+        if (i === 0) {
+          btn.classList.add('active');
+          loadReport(page.report, container, btn);
+        }
+        container.appendChild(btn);
+      });
+    }
+
+    function loadReport(url, container, button) {
+      document.getElementById('reportViewer').style.display = 'none';
+      document.getElementById('loader').style.display = 'block';
+      document.getElementById('noReport').style.display = 'none';
+
+      container.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      const iframe = document.getElementById('reportViewer');
+      iframe.src = url;
+      iframe.onload = () => {
+        document.getElementById('loader').style.display = 'none';
+        iframe.style.display = 'block';
+      };
+      iframe.onerror = () => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('noReport').style.display = 'block';
+      };
+    }
+
+    loadModule('products');
+  </script>
+</body>
+</html>

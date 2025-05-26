@@ -11,14 +11,14 @@ const viewportSizes: Record<ViewportType, { width: number; height: number }> = {
   mobile: { width: 360, height: 1000 }
 };
 
-export class PaystationPage {
+export class BuyButtonPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/paystation`, {
+    await this.page.goto(`${process.env.BASEURL}/buy-button`, {
       waitUntil: 'networkidle'
     });
-    await this.page.waitForTimeout(2000);
+    await this.page.waitForTimeout(1000);
   }
 
   async takeScreenshot(): Promise<Buffer> {
