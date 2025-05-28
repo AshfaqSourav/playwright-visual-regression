@@ -1,15 +1,10 @@
 import { Page } from '@playwright/test';
+import { getEnabledViewports, ViewportType } from '../../utils/viewPorts';
+
 import dotenv from 'dotenv';
 dotenv.config();
 
-type ViewportType = 'desktop' | 'laptop' | 'tablet' | 'mobile';
-
-const viewportSizes: Record<ViewportType, { width: number; height: number }> = {
-  desktop: { width: 1815, height: 1000 },
-  laptop: { width: 1455, height: 1000 },
-  tablet: { width: 783, height: 1000 },
-  mobile: { width: 375, height: 1000 }
-};
+const viewportSizes = getEnabledViewports(4); 
 
 export class PaystationPage {
   constructor(private page: Page, private viewport: ViewportType) {}

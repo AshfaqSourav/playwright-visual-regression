@@ -44,7 +44,7 @@ npm install
 ```Install Playwright browsers:
 npx playwright install
 npm install --save-dev @types/node
- npm install -g cors-anywhere
+#  npm install -g cors-anywhere //for bypass cors error
 
 ```Add .env file
 npm install dotenv

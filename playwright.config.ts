@@ -13,10 +13,11 @@ export default defineConfig({
 
     launchOptions: {
       args: [
-        '--disable-web-security',
-    '--disable-features=IsolateOrigins,site-per-process',
-    '--allow-running-insecure-content',
-    '--disable-site-isolation-trials',
+        //Cors Error Fix
+    //     '--disable-web-security',
+    // '--disable-features=IsolateOrigins,site-per-process',
+    // '--allow-running-insecure-content',
+    // '--disable-site-isolation-trials',
     '--start-maximized'// 👈 Ask Chromium to open maximized
       ]
     }
