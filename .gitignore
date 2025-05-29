@@ -16,7 +16,6 @@ yarn-error.log*
 # Testing output
 /test-results/
 /diff_output/
-/expected_screenshots/
 coverage/
 *.zip
 *.png
