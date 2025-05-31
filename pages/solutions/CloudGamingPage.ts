@@ -9,7 +9,7 @@ export class CloudGamingPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/solution-cloud`, {
+    await this.page.goto(`${process.env.BASEURL}/cloud-gaming`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

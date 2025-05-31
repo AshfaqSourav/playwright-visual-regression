@@ -21,7 +21,7 @@ export class PressKitPage {
     const size = viewportSizes[this.viewport];
     await this.page.setViewportSize(size);
     await this.page.waitForTimeout(100);
-     await scrollPage(this.page);
+    await scrollPage(this.page);
     return await this.page.screenshot({ fullPage: true });
   }
 }
