@@ -10,7 +10,7 @@ export class XsollaReportPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/report`, {
+    await this.page.goto(`${process.env.BASEURL}/the-xsolla-report`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);
