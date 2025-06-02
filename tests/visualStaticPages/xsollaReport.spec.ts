@@ -17,7 +17,7 @@ let laptopDiffPixels = 0;
 let tabletDiffPixels = 0;
 let mobileDiffPixels = 0;
 
-test('A - Site Map Desktop visual should match Figma', async ({ page }) => {
+test('A - Xsolla Report Desktop visual should match Figma', async ({ page }) => {
   const xsollaReport = new XsollaReportPage(page, 'desktop');
   await xsollaReport.goto();
   await scrollPage(page);
@@ -35,13 +35,13 @@ test('A - Site Map Desktop visual should match Figma', async ({ page }) => {
     diffPixels: desktopDiffPixels,
     outputDir: diffDir,
     reportPath: `${diffDir}/xsollaReportDesktop-report.html`,
-    pageName: 'Site Map Desktop'
+    pageName: 'Xsolla Report Desktop'
   });
 
   expect(desktopDiffPixels).toBeLessThan(100);
 });
 
-test('B - Site Map Laptop visual should match Figma', async ({ page }) => {
+test('B - Xsolla Report Laptop visual should match Figma', async ({ page }) => {
   const xsollaReport = new XsollaReportPage(page, 'laptop');
   await xsollaReport.goto();
   await scrollPage(page);
@@ -59,13 +59,13 @@ test('B - Site Map Laptop visual should match Figma', async ({ page }) => {
     diffPixels: laptopDiffPixels,
     outputDir: diffDir,
     reportPath: `${diffDir}/xsollaReportLaptop-report.html`,
-    pageName: 'Site Map Laptop'
+    pageName: 'Xsolla Report Laptop'
   });
 
   expect(laptopDiffPixels).toBeLessThan(100);
 });
 
-test('C - Site Map Tablet visual should match Figma', async ({ page }) => {
+test('C - Xsolla Report Tablet visual should match Figma', async ({ page }) => {
   const xsollaReport = new XsollaReportPage(page, 'tablet');
   await xsollaReport.goto();
   await scrollPage(page);
@@ -83,13 +83,13 @@ test('C - Site Map Tablet visual should match Figma', async ({ page }) => {
     diffPixels: tabletDiffPixels,
     outputDir: diffDir,
     reportPath: `${diffDir}/xsollaReportTablet-report.html`,
-    pageName: 'Site Map Tablet'
+    pageName: 'Xsolla Report Tablet'
   });
 
   expect(tabletDiffPixels).toBeLessThan(100);
 });
 
-test('D - Site Map Mobile visual should match Figma', async ({ page }) => {
+test('D - Xsolla Report Mobile visual should match Figma', async ({ page }) => {
   const xsollaReport = new XsollaReportPage(page, 'mobile');
   await xsollaReport.goto();
   await scrollPage(page);
@@ -107,7 +107,7 @@ test('D - Site Map Mobile visual should match Figma', async ({ page }) => {
     diffPixels: mobileDiffPixels,
     outputDir: diffDir,
     reportPath: `${diffDir}/xsollaReportMobile-report.html`,
-    pageName: 'Site Map Mobile'
+    pageName: 'Xsolla Report Mobile'
   });
 
   expect(mobileDiffPixels).toBeLessThan(100);
@@ -118,7 +118,7 @@ test('E - Generate combined xsollaReport multi-viewport tabbed report', async ()
   generateTabbedReportHtml({
     outputDir: diffDir,
     reportPath,
-    pageName: 'Site Map',
+    pageName: 'Xsolla Report',
     viewports: [
       {
         name: 'Desktop',

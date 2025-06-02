@@ -49,7 +49,7 @@ test('B - Backend Laptop visual should match Figma', async ({ page }) => {
 
   laptopDiffPixels = compareScreenshots({
     actualBuffer: buffer,
-    expectedPath: './expected_screenshots/slnBackend/slnBackendackendLaptopFigma.png',
+    expectedPath: './expected_screenshots/slnBackend/slnBackendLaptopFigma.png',
     actualPath: `${diffDir}/slnBackendLaptop-actual.png`,
     diffPath: `${diffDir}/slnBackendLaptop-diff.png`,
     expectedCopyPath: `${diffDir}/slnBackendLaptop-expected.png`

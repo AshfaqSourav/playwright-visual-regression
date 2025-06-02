@@ -6,11 +6,11 @@ dotenv.config();
 
 const viewportSizes = getEnabledViewports(4); // 👈 Update count or keys as needed
 
-export class LegalIndexPage {
+export class FaqInnerPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/legal-agreements`, {
+    await this.page.goto(`${process.env.BASEURL}/faq/fees-payouts`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);
