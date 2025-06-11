@@ -10,7 +10,7 @@ export class WSLiveOpsPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/mobile-web-shop/live-ops`, {
+    await this.page.goto(`${process.env.BASE_URL}/mobile-web-shop/live-ops`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

@@ -11,7 +11,7 @@ export class GiveawayPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/stevenage-giveaway`, {
+    await this.page.goto(`${process.env.BASE_URL}/stevenage-giveaway`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

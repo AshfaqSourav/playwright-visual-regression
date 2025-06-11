@@ -9,7 +9,7 @@ export class BuyButtonPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/buy-button`, {
+    await this.page.goto(`${process.env.BASE_URL}/buy-button`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

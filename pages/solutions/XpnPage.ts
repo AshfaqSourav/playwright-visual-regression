@@ -9,7 +9,7 @@ export class XpnPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/partner-network`, {
+    await this.page.goto(`${process.env.BASE_URL}/partner-network`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

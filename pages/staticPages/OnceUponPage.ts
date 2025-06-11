@@ -11,7 +11,7 @@ export class OnceUponPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/once-upon-tomorrow`, {
+    await this.page.goto(`${process.env.BASE_URL}/once-upon-tomorrow`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

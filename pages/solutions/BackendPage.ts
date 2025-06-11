@@ -10,7 +10,7 @@ export class BackendPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/backend`, {
+    await this.page.goto(`${process.env.BASE_URL}/backend`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

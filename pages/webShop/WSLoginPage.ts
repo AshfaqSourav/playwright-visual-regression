@@ -10,7 +10,7 @@ export class WSLoginPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/mobile-web-shop/login`, {
+    await this.page.goto(`${process.env.BASE_URL}/mobile-web-shop/login`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

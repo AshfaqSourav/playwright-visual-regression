@@ -11,7 +11,7 @@ export class FamilyPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/xsolla-brands`, {
+    await this.page.goto(`${process.env.BASE_URL}/xsolla-brands`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

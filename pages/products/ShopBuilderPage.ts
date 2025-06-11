@@ -10,7 +10,7 @@ export class ShopBuilderPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/in-game-services`, {
+    await this.page.goto(`${process.env.BASE_URL}/in-game-services`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

@@ -11,7 +11,7 @@ export class ContactUsPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/contact-us`, {
+    await this.page.goto(`${process.env.BASE_URL}/contact-us`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

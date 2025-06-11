@@ -10,7 +10,7 @@ export class XsollaGoldPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/gold-gift-card`, {
+    await this.page.goto(`${process.env.BASE_URL}/gold-gift-card`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

@@ -13,7 +13,7 @@ export class AntiFraudPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/antifraud`, {
+    await this.page.goto(`${process.env.BASE_URL}/antifraud`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

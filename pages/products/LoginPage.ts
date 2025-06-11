@@ -10,7 +10,7 @@ export class LoginPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/login`, {
+    await this.page.goto(`${process.env.BASE_URL}/login`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

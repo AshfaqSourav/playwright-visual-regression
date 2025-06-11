@@ -9,7 +9,7 @@ export class SiteMapPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/sitemap`, {
+    await this.page.goto(`${process.env.BASE_URL}/sitemap`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

@@ -11,7 +11,7 @@ export class PressKitPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/press-kit`, {
+    await this.page.goto(`${process.env.BASE_URL}/press-kit`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

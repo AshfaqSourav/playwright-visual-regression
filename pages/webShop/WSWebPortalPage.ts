@@ -10,7 +10,7 @@ export class WSWebPortalPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/mobile-web-shop/portal`, {
+    await this.page.goto(`${process.env.BASE_URL}/mobile-web-shop/portal`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(1000);

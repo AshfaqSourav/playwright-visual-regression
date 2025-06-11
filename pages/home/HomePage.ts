@@ -11,7 +11,7 @@ export class HomePage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}`, {
+    await this.page.goto(`${process.env.BASE_URL}`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

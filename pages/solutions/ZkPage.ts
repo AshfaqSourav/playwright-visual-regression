@@ -10,7 +10,7 @@ export class ZkPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/zk`, {
+    await this.page.goto(`${process.env.BASE_URL}/zk`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

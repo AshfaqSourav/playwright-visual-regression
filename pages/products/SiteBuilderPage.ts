@@ -10,7 +10,7 @@ export class SiteBuilderPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/site-builder`, {
+    await this.page.goto(`${process.env.BASE_URL}/site-builder`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);

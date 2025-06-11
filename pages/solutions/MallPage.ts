@@ -10,7 +10,7 @@ export class MallPage {
   constructor(private page: Page, private viewport: ViewportType) {}
 
   async goto() {
-    await this.page.goto(`${process.env.BASEURL}/mall`, {
+    await this.page.goto(`${process.env.BASE_URL}/mall`, {
       waitUntil: 'networkidle'
     });
     await this.page.waitForTimeout(2000);
